@@ -2,10 +2,8 @@ defmodule CrSqlite do
   @moduledoc """
   Documentation for `CrSqlite`.
   """
-
   alias CrSqlite.CpuInfo
 
-  # https://github.com/mindreframer/sqlean/blob/forked/gen/generateMakefile.js#L4
   @extensions CrSqlite.Extensions.all()
   def extensions do
     @extensions
@@ -25,9 +23,10 @@ defmodule CrSqlite do
     case CpuInfo.fullinfo() do
       {:macos, "arm64"} -> "darwin-arm64"
       {:macos, "amd64"} -> "darwin-amd64"
+      {:linux, "arm64"} -> "linux-arm64"
+      {:linux, "amd64"} -> "linux-amd64"
       {:windows, "win32"} -> "windows-win32"
       {:windows, _} -> "windows-amd64"
-      {:linux, _} -> "linux-amd64"
     end
   end
 end
