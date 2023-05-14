@@ -2,7 +2,7 @@ defmodule CrSqlite.MixProject do
   use Mix.Project
   @github_url "https://github.com/maxohq/cr_sqlite"
   @version "0.1.0"
-  @description "CrSqlite description"
+  @description "CrSqlite - precompiled binaries for https://github.com/vlcn-io/cr-sqlite in Elixir"
 
   def project do
     [
