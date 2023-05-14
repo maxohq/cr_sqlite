@@ -20,6 +20,17 @@ defmodule CrSqlite.CpuInfo do
     end
   end
 
+  def arch_path() do
+    case fullinfo() do
+      {:macos, "arm64"} -> "darwin-arm64"
+      {:macos, "amd64"} -> "darwin-amd64"
+      {:linux, "arm64"} -> "linux-arm64"
+      {:linux, "amd64"} -> "linux-amd64"
+      {:windows, "win32"} -> "windows-win32"
+      {:windows, _} -> "windows-amd64"
+    end
+  end
+
   defp cpu_type do
     cpu_type_sub(os_type())
   end

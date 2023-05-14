@@ -6,13 +6,15 @@
 [![Total Downloads](https://img.shields.io/hexpm/dt/cr_sqlite.svg?style=flat)](https://hex.pm/packages/cr_sqlite)
 [![Licence](https://img.shields.io/hexpm/l/cr_sqlite.svg?style=flat)](https://github.com/maxohq/cr_sqlite/blob/main/LICENCE)
 
-
 `CrSqlite` is ...
 
 ## Usage
 
 ```elixir
-IO.puts "hello"
+alias Exqlite.Basic
+{:ok, conn} = Basic.open("db.sqlite3")
+CrSqlite.load_extension(conn)
+
 ```
 
 ## Installation
