@@ -46,6 +46,7 @@ defmodule CrSqlite.MixProject do
   defp deps do
     [
       {:ex_doc, "~> 0.29", only: :dev, runtime: false},
+      {:exqlite, "~> 0.13", only: [:dev, :test]},
       {:maxo_test_iex, "~> 0.1", only: [:test]},
       {:mneme, "~> 0.3", only: [:test]}
     ]
