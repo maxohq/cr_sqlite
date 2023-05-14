@@ -45,6 +45,7 @@ defmodule CrSqlite.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
+      {:jason, "~> 1.2"},
       {:ex_doc, "~> 0.29", only: :dev, runtime: false},
       {:exqlite, "~> 0.13", only: [:dev, :test]},
       {:maxo_test_iex, "~> 0.1", only: [:test]},
