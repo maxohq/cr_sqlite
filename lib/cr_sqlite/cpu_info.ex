@@ -1,5 +1,7 @@
 # With ideas from from https://github.com/zeam-vm/cpu_info/blob/master/lib/cpu_info.ex
 defmodule CrSqlite.CpuInfo do
+  @cache_key :cr_sqlite_cpu_info
+
   @doc """
   Responds with os type / cpu type tuple.
 
@@ -9,11 +11,11 @@ defmodule CrSqlite.CpuInfo do
   """
   @spec fullinfo :: {atom(), binary()}
   def fullinfo do
-    if v = CrSqlite.CacheETS.get(:fullinfo) do
+    if v = :persistent_term.get(@cache_key, nil) do
       v
     else
       v = {os_type(), cpu_type()}
-      CrSqlite.CacheETS.put(:fullinfo, v)
+      :persistent_term.put(@cache_key, v)
       v
     end
   end
