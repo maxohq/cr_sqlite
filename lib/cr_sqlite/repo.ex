@@ -11,6 +11,15 @@ defmodule CrSqlite.Repo do
     end
   end
 
+  def array(conn, sql, args \\ []) do
+    res = exec(conn, sql, args)
+
+    case res do
+      {:ok, res} -> {:ok, res.rows}
+      {:error, res} -> {:error, res}
+    end
+  end
+
   def list(conn, sql, args \\ []) do
     exec(conn, sql, args) |> Transformer.to_list()
   end
